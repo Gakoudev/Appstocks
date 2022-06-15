@@ -1,0 +1,19 @@
+{% extends 'acceil.html.twig' %}
+
+{% block title %}Bienvenue pour votre premiére connection{% endblock %}
+
+{% block body %}
+<div class="row"> 
+    
+    <div class="container col-md-5"> 
+        <div class="card"> 
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary">Mise à jour mot de passe</h6>
+            </div>
+            <div class="card-body">
+                {{form(form)}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

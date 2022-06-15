@@ -1,0 +1,48 @@
+{% extends 'acceil.html.twig' %}
+
+{% block title %}Gestion des catégories{% endblock %}
+
+{% block body %}
+<div class="row"> 
+    <div class="container col-md-7">
+    <div class="card"> 
+        <div class="card-header">
+            <h6 class="m-0 font-weight-bold text-primary">Liste des utilisateurs par roles</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Prénoom</th>
+                            <th>Nom</th>
+                            <th>Rôle</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Prénoom</th>
+                            <th>Nom</th>
+                            <th>Rôle</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                    
+                        {% for r in roles %}
+                            {% for u in r.users %}
+                                <tr>
+                                <td>{{ u.prenom }}</td>
+                                <td>{{ u.nom }}</td>
+                                <td>{{ r.nom }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+</div>
+{% endblock %}

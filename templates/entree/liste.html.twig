@@ -1,0 +1,63 @@
+{% extends 'acceil.html.twig' %}
+
+{% block title %}Gestion des entrees{% endblock %}
+
+{% block body %}
+<div class="row"> 
+    <div class="container col-md-7">
+        <div class="card"> 
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary">Gestion des achats</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Identifiant</th>
+                                <th>Date</th>
+                                <th>Quantite acheté</th>
+                                <th>Produit</th>
+                                <th>Prix</th>
+                                <th>Gérant</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Identifiant</th>
+                                <th>Date</th>
+                                <th>Quantite acheté</th>
+                                <th>Produit</th>
+                                <th>Prix</th>
+                                <th>Gérant</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            {% for e in entrees %}
+                                <tr>
+                                <td>{{ e.id }}</td>
+                                <td>{{ e.dateE|date('d/m/y') }}</td>
+                                <td>{{ e.qtE }}</td>
+                                <td>{{ e.produit }}</td>
+                                <td>{{ e.prix }}</td>
+                                <td>{{ e.user }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container col-md-5"> 
+        <div class="card"> 
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary">Formulaire de gestion des achats</h6>
+            </div>
+            <div class="card-body">
+                {{form(form)}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'acceil.html.twig' %}
+
+{% block title %}Gestion des produits{% endblock %}
+
+{% block body %}
+<div class="row"> 
+    <div class="container col-md-7">
+    <div class="card"> 
+        <div class="card-header">
+            <h6 class="m-0 font-weight-bold text-primary">Liste des produits</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Identifiant</th>
+                            <th>Libelle</th>
+                            <th>Quantite en stock</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Identifiant</th>
+                            <th>Libelle</th>
+                            <th>Quantite en stock</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for p in produits %}
+                            <tr>
+                            <td>{{ p.id }}</td>
+                            <td>{{ p.libelle }}</td>
+                            <td>{{ p.qtStock }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="container col-md-5"> 
+    <div class="card"> 
+        <div class="card-header">
+            <h6 class="m-0 font-weight-bold text-primary">Formulaire de gestion des produits</h6>
+        </div>
+        <div class="card-body">
+            {{form(form)}}
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
